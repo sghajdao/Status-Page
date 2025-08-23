@@ -1,0 +1,43 @@
+.page {
+    width: 500px;
+    background-color: #22242c;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.title {
+    font-size: 25px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+input {
+    color: aliceblue;
+    background-color: #14161a;
+    border: 2px solid #22242c;
+    width: 350px;
+    height: 40px;
+    text-indent: 10px;
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    background-color: rgb(72, 72, 226);
+    margin-top: 20px;
+    color: aliceblue;
+    transition: 0.3s;
+    border-radius: 8px;
+}
+
+button:hover {
+    background-color: #14161a;
+}

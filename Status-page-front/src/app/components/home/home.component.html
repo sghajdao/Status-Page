@@ -1,0 +1,26 @@
+<div class="page">
+    <div class="bar card">
+        <div class="card-body">
+            <div class="title">
+                <i class="pi pi-wifi" style="font-size: 2rem;color: rgb(55, 55, 238);margin-top: 10px"></i>
+                <div>
+                    <p class="title-text">Network Control Center</p>
+                    <p class="subtitle">University IT Infrastructure</p>
+                </div>
+            </div>
+            <div class="search">
+                <p-iconfield>
+                    <p-inputicon class="pi pi-search" />
+                    <input [(ngModel)]="searchInput" type="text" pInputText placeholder="Search" />
+                </p-iconfield>
+                <button routerLink="/dashboard">Dashboard</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="body">
+        <app-stats></app-stats>
+        <div class="separator"></div>
+        <app-switch [searchInput]="searchInput"></app-switch>
+    </div>
+</div>

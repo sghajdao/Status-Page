@@ -1,0 +1,19 @@
+<div class="page" [formGroup]="form">
+    <p class="title">New Switch</p>
+    <div class="center">
+        <p-floatlabel variant="on">
+            <input pInputText id="on_label" autocomplete="off" formControlName="ip" />
+            <label for="on_label">IP Address</label>
+        </p-floatlabel>
+    </div>
+    <div class="center">
+        <p-floatlabel variant="on">
+            <input pInputText id="on_label" autocomplete="off" formControlName="location" />
+            <label for="on_label">Location</label>
+        </p-floatlabel>
+    </div>
+
+    <div class="center">
+        <button (click)="newSwitch()">Save</button>
+    </div>
+</div>

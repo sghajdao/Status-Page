@@ -1,0 +1,59 @@
+.page {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding-top: 20px;
+}
+
+.spinner {
+    width: 100%;
+    height: calc(100vh - 80px);
+    position: absolute;
+    top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cover {
+    flex: 1 1 calc(25% - 16px);
+    min-width: 250px;
+}
+
+.card {
+    /* flex: 1 1 calc(25% - 16px); */
+    background-color: #181a1f;
+    /* border: 2px solid #203d2d; */
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    scale: 1.02;
+}
+
+.card-body {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.name {
+    color: aliceblue;
+    font-weight: 600;
+}
+
+.details {
+    color: gray;
+    margin-bottom: 0;
+}
+
+p-tag {
+    transition: 0.3s;
+}
+
+p-tag:hover {
+    background: #8aadff;
+    color: #253d73;
+}

@@ -17,7 +17,7 @@ export class StatusService {
   status$ = this.status.asObservable()
 
   initializeWebSocketConnection() {
-    this.stompClient = Stomp.over(() => new SockJS('https://localhost:9090/ws'));
+    this.stompClient = Stomp.over(() => new SockJS('http://localhost:9090/ws'));
     const that = this;
 
     this.stompClient.connect({}, function(frame:IMessage) {

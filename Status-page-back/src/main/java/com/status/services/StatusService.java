@@ -28,6 +28,9 @@ public class StatusService {
     @Autowired
     private SwitchRepository switchRepository;
 
+    private List<SwitchEntity> offlines = new ArrayList<>();
+    private List<SwitchEntity> previousOfflines = new ArrayList<>();
+
     public StatusService() throws Exception {
         this.restTemplate = UnsafeRestTemplate.create(); // SSL disabled RestTemplate
     }
@@ -36,13 +39,19 @@ public class StatusService {
     public void getStatus() {
         List<SwitchEntity> switches = switchRepository.findAll();
         List<SwitchStatus> response = new ArrayList<>();
+        List<SwitchEntity> offlineAux = new ArrayList<>();
 
         for (SwitchEntity s : switches) {
             boolean isUp = checkHostStatus(s.getIp());
+            if (!isUp)
+                offlineAux.add(s);
             SwitchStatus item = new SwitchStatus(s, isUp ? 0 : 1);
             response.add(item);
         }
         template.convertAndSend("/message", response);
+        offlines = new ArrayList<>(offlineAux);
+        System.out.println(offlineAux.size());
+        System.out.println(offlines.size());
     }
 
     private boolean checkHostStatus(String host) {
@@ -143,5 +152,17 @@ public class StatusService {
         } catch (IOException e) {
             return false;
         }
+    }
+
+    public List<SwitchEntity> getOfflines() {
+        return offlines;
+    }
+
+    public List<SwitchEntity> getPreviousOfflines() {
+        return previousOfflines;
+    }
+
+    public void setPreviousOfflines(List<SwitchEntity> previous) {
+        this.previousOfflines = previous;
     }
 }
